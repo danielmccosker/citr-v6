@@ -1,0 +1,11 @@
+.cache/
+.idea/
+.parcel-cache/
+.vscode/
+
+coverage/
+dist/
+node_modules/
+
+.DS_Store
+.env
