@@ -16,12 +16,12 @@ const Pet = ({ name, animal, breed, images, location, id }) => {
   }
 
   return (
-    <Link id={id} to={`/details/${id}`} className="pet">
+    <Link id={id} to={`/details/${id}`} className="relative block">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
-      <div className="info">
-        <h1>{name}</h1>
+      <div className="info absolute bottom-0 left-0 bg-gradient-to-tr from-white to-transparent p-2">
+        <h1 className="font-extrabold">{name}</h1>
         <h2>
           {animal} - {breed} - {location}
         </h2>

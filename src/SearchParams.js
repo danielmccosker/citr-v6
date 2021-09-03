@@ -27,26 +27,29 @@ const SearchParams = () => {
   }
 
   return (
-    <div className="search-params">
+    <div id="SearchParams" className="my-0 mx-auto w-10/12">
       <form
+        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center divide-y divide-gray-900"
         onSubmit={(e) => {
           e.preventDefault();
           requestPets();
         }}
       >
-        <label htmlFor="location">
+        <label className="search-label" htmlFor="location">
           Location
           <input
             id="location"
+            className="search-control"
             value={location}
             placeholder="Location"
             onChange={(e) => setLocation(e.target.value)}
           />
         </label>
-        <label htmlFor="animal">
+        <label className="search-label" htmlFor="animal">
           Animal
           <select
             id="animal"
+            className="search-control"
             value={animal}
             onChange={(e) => setAnimal(e.target.value)}
             onBlur={(e) => setAnimal(e.target.value)}
@@ -59,11 +62,12 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="breed">
+        <label className="search-label" htmlFor="breed">
           Breed
           <select
-            disabled={!breedList.length}
             id="breed"
+            className="search-control disabled:opacity-50"
+            disabled={!breedList.length}
             value={breed}
             onChange={(e) => setBreed(e.target.value)}
             onBlur={(e) => setBreed(e.target.value)}
@@ -76,12 +80,13 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="theme">
+        <label className="search-label" htmlFor="theme">
           Theme
           <select
-            value={theme}
+            className="search-control"
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
+            value={theme}
           >
             <option value="darkblue">Blue</option>
             <option value="darkgreen">Green</option>
@@ -89,7 +94,12 @@ const SearchParams = () => {
             <option value="darkorange">Orange</option>
           </select>
         </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <button
+          className="search-control rounded color text-white hover:opacity-80 border-none"
+          style={{ backgroundColor: theme }}
+        >
+          Submit
+        </button>
       </form>
       <Results pets={pets} />
     </div>
