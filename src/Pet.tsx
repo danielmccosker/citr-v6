@@ -1,5 +1,6 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Link } from "react-router-dom";
+import { Animal } from "./ApiResponseTypes";
 
 // export const Pet = (props) => {
 //   return React.createElement("div", {}, [
@@ -9,14 +10,25 @@ import { Link } from "react-router-dom";
 //   ]);
 // };
 
-const Pet = ({ name, animal, breed, images, location, id }) => {
+interface IProps {
+  name: string;
+  animal: Animal;
+  breed: string;
+  images: string[];
+  location: string;
+  id: number;
+}
+
+const Pet: FunctionComponent<IProps> = (props) => {
+  const { name, animal, breed, images, location, id } = props;
+
   let hero = `http://pets-images.dev-apis.com/pets/none.jpg`;
   if (images.length) {
     hero = images[0];
   }
 
   return (
-    <Link id={id} to={`/details/${id}`} className="pet">
+    <Link id={`id`} to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
